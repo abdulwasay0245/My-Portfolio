@@ -6,8 +6,7 @@ const about = () => {
   return (
       <main>
           <Header></Header>
-          <hr />
-          <About></About>
+    
           <Footer></Footer>
 </main>
   )

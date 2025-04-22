@@ -1,18 +1,21 @@
 import React from 'react'
 import Image from 'next/image'
+import Social from './data/socialLink'
+import "../globals.css"; 
+import { scriptFont,roboto } from '../fonts/fonts';
 const Footer = () => {
   return (
-      <div className=' h-[80px] bg-sections  flex items-center justify-between text-white sm-max:text-[10px]'>
-          <div className="pl-10">Developed by Abdul Wasay</div>
-          <div className="font-thin">Copyright © 2024 Abdul Wasay
-</div>
-          <div className="flex justify-between pr-10 gap-4  items-center">
-              Connect with me:
-        <Image alt='#' height={30} width={30} src='/facebook.png' className='object-cover rounded-[100px] sm-max:w-[20px] sm-max:h-[20px]'></Image>
-        <Image alt='#' height={30} width={30} src='/twitter.png' className='object-cover rounded-[100px] sm-max:w-[20px] sm-max:h-[20px]'></Image>
-        <Image alt='#' height={30} width={30} src='/github.png' className='object-cover rounded-[100px] sm-max:w-[20px] sm-max:h-[29px]' ></Image>
-          </div>
-    </div>
+    <footer className=' flex flex-col justify-start items-center gap-4 bg-lightGrey pt-16'>
+      <div className='flex items-center'>
+        <hr className=' border-2 border-orange rounded-full animation-line' />
+        <div className='flex gap-4 px-4'>
+          <Social></Social>
+        </div>
+        <hr className=' border-2 border-orange rounded-full animation-line'/>
+      </div>
+      <p className={` text-text pb-10  ${roboto.className}`}>© All Rights Reserved 2024</p>
+      <h1 className={` text-text text-2xl  ${roboto.className}`}>Developed & Designed by <span className={` text-3xl text-orange ${scriptFont.className}`}>Abdul Wasay</span></h1>
+ </footer>
   )
 }
 
