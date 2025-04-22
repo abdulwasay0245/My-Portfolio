@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import Social from './data/socialLink'
 import "../globals.css"; 
 import { scriptFont,roboto } from '../fonts/fonts';

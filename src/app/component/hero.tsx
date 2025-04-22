@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { scriptFont, roboto } from '../fonts/fonts'
 import Form from './form'
 const Hero = () => {
