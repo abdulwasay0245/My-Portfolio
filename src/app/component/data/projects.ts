@@ -5,7 +5,7 @@
 const ProjectData = [
     {
         address: "/projectImg/logo1.png",
-        heading: "Comforty",
+        heading: "Comforty E-commerce",
         link: "https://hackathon2-giaic.vercel.app/",
         
     },

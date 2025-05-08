@@ -18,7 +18,7 @@ const socialData :SocialLink[]= [
         source : "/facebook.png"
     },
       {
-        address: "https://github.com/abdulwasay0245",
+        address: "https://www.linkedin.com/in/wasaydevops/",
         source : "/linkedin.png"
     },
 ]
@@ -31,7 +31,7 @@ const Social = () => {
           width={24}
           height={24}
           src={socialData.source}
-          alt="Social Link" // Add appropriate alt text
+          alt="Social Link" 
         />
       </Link>
     ))
