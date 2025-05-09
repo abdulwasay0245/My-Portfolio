@@ -83,3 +83,10 @@ width: 384px;
     @apply bg-background text-foreground;
     }
 }
+
+.gradient-background{
+  
+background-color: #5A4FCF;
+background-image: linear-gradient(315deg, #171344 0%, #201c20 74%);
+
+}

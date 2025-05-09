@@ -2,9 +2,10 @@ import React from 'react'
 import Image from 'next/image'
 import { scriptFont, roboto } from '../fonts/fonts'
 import Form from './form'
+import '../globals.css'
 const Hero = () => {
   return (
-    <main className='flex flex-col items-center gap-16  md: pt-4 bg-grey'>
+    <main className='flex flex-col items-center gap-16  md: pt-4 gradient-background'>
       <Image
         alt='my'
         src="/myImg.gif"
