@@ -7,7 +7,7 @@ import ProjectData from '../component/data/projects'
 
 const project = () => {
   return (
-      <section className='bg-grey py-10 overflow-hidden'>
+      <section className='gradient-background py-10 overflow-hidden'>
       <div className='grid grid-cols-3 gap-4 px-10 justify-center'>
         {ProjectData.map((data, index) =>
            <Link key={index} href={data.link}>

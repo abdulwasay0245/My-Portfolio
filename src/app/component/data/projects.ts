@@ -11,7 +11,7 @@ const ProjectData = [
     },
 
      {
-        address: "/projectImg/logo.png",
+        address: "/projectImg/logo.ico",
         heading: "Event Horizon",
         link: "https://personal-portfolio-seven-sand-46.vercel.app/",
         

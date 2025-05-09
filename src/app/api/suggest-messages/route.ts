@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import Groq from "groq-sdk";
 
 const groq = new Groq({
-  apiKey: "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",
+  apiKey: "",
 });
 
 export async function POST(req: NextRequest) {
