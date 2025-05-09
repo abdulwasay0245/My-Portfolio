@@ -4,7 +4,7 @@ import "../globals.css";
 import { scriptFont,roboto } from '../fonts/fonts';
 const Footer = () => {
   return (
-    <footer className=' flex flex-col justify-start items-center gap-4 bg-lightGrey pt-16'>
+    <footer className=' flex flex-col justify-start items-center gap-4 gradient-background pt-16'>
       <div className='flex items-center'>
         <hr className=' max-w-full border-2 border-orange rounded-full animation-line' />
         <div className='flex gap-4 px-4'>
