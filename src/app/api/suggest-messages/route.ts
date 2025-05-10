@@ -1,41 +1,30 @@
-import { NextRequest } from "next/server";
-import Groq from "groq-sdk";
+// app/api/route.ts
 
-const groq = new Groq({
-  apiKey: "",
+import { GoogleGenAI } from '@google/genai';
+
+const ai = new GoogleGenAI({
+  apiKey: process.env.GOOGLE_API_KEY!, // Ensure it's set in .env.local
 });
 
-export async function POST(req: NextRequest) {
+export async function POST(request: Request) {
   try {
-    const completion = await groq.chat.completions.create({
-      messages: [
-        {
-          role: "system",
-          content: "You are a helpful assistant.",
-        },
-        {
-          role: "user",
-          content: "Give a short positive comment suggestion.",
-        },
-      ],
-      model: "llama-3-8b-8192", // or "llama-3-70b-8192" if available
-      temperature: 0.7,
+    const body = await request.json();
+    const prompt = body.prompt || 'Say hi from Gemini!';
+
+    const result = await ai.models.generateContent({
+      model: 'gemini-1.5-flash-latest',
+      contents: prompt,
     });
 
-    const message = completion.choices[0]?.message?.content ?? "No response";
-
-    return new Response(JSON.stringify({ suggestion: message }), {
+    return new Response(JSON.stringify({ text: result.text }), {
       status: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { 'Content-Type': 'application/json' },
     });
-  } catch (err) {
-    console.error("Groq API call failed:", JSON.stringify(err, null, 2));
-;
-    return new Response(
-      JSON.stringify({ error: "Failed to generate suggestion." }),
-      { status: 500 }
-    );
+  } catch (error: any) {
+    console.error(error);
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 }
