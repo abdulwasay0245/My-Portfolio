@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     console.error(error);
-    return new Response(JSON.stringify({ error: error.message }), {
+    return new Response(JSON.stringify({ error}), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
