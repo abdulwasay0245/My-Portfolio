@@ -29,7 +29,10 @@ const Hero = () => {
         </article>
  <a href="../Abdul-Wasay.pdf" download ><button className={`bg-transparent border-2 border-orange px-6 py-2 rounded-2xl mt-2 text-lg font-normal text-orange hover:bg-orange hover:text-grey hover:duration-300 ${roboto.className}`}>Download Resume</button></a>
       </div>
-      
+      <div >
+        <h1 className={`${scriptFont.className} text-6xl text-orange`}>Skills</h1>
+        <div className='grid grid-cols-3 grid-rows-3 border-white border-2 h-screen w-full'></div>
+      </div>
     </main>
     
   )
