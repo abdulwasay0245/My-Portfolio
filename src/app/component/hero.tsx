@@ -15,7 +15,7 @@ const Hero = () => {
       >
        </Image>
       <div className='flex flex-col  items-center'>
-<h1 className={`${roboto.className} text-2xl text-lightGrey text-center`}>I am <span className={`text-6xl text-orange  ${scriptFont.className}`}>Abdul Wasay</span>  a <span className={`text-6xl text-orange  ${scriptFont.className}`}>Front-End Developer</span> </h1>
+      <h1 className={`${roboto.className} text-2xl text-lightGrey text-center`}>I am <span className={`text-6xl text-orange  ${scriptFont.className}`}>Abdul Wasay</span>  a <span className={`text-6xl text-orange  ${scriptFont.className}`}>Front-End Developer</span> </h1>
       </div>
       <button className={`bg-transparent border-2 border-orange px-6 py-2 rounded-2xl text-lg font-normal text-orange hover:bg-orange hover:text-grey hover:duration-300 ${roboto.className}`}>Contact Me</button>
       <Form />
@@ -25,17 +25,16 @@ const Hero = () => {
       <article className='flex flex-col sm:flex-row items-center  sm:items-start gap-4'>
         <hr className='w-16 border-2 border-orange rounded-full mt-3' />
         <p className='text-text w-[80%] sm:w-auto'>A passionate and skilled Front-End Developer with a strong focus on building exceptional user experiences. Proficient in modern technologies such as ReactJS, NextJS, Tailwind CSS, HTML, CSS, JavaScript, TypeScript, and Shadcn UI. I have a keen eye for design and enjoy creating visually appealing and functional web applications. Currently exploring the exciting world of Agentic AI development to further enhance my skillset and contribute to innovative projects.
-</p>
+        </p>
         </article>
  <a href="../Abdul-Wasay.pdf" download ><button className={`bg-transparent border-2 border-orange px-6 py-2 rounded-2xl mt-2 text-lg font-normal text-orange hover:bg-orange hover:text-grey hover:duration-300 ${roboto.className}`}>Download Resume</button></a>
       </div>
-      <div >
+      <div className='py-6 space-y-2'>
         <h1 className={`${scriptFont.className} text-6xl text-orange`}>Skills</h1>
         <div className='grid grid-cols-3 grid-rows-3 border-white border-2 h-screen w-full'></div>
       </div>
     </main>
-    
   )
 }
-
 export default Hero
+
