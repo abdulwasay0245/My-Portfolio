@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { scriptFont, roboto } from '../fonts/fonts'
 import Form from './form'
 import '../globals.css'
+import Skills from './skills'
+
 const Hero = () => {
   return (
     <main className='flex flex-col items-center gap-16  md: pt-4 gradient-background'>
@@ -29,10 +31,7 @@ const Hero = () => {
         </article>
  <a href="../Abdul-Wasay.pdf" download ><button className={`bg-transparent border-2 border-orange px-6 py-2 rounded-2xl mt-2 text-lg font-normal text-orange hover:bg-orange hover:text-grey hover:duration-300 ${roboto.className}`}>Download Resume</button></a>
       </div>
-      <div className='py-6 space-y-2'>
-        <h1 className={`${scriptFont.className} text-6xl text-orange`}>Skills</h1>
-        <div className='grid grid-cols-3 grid-rows-3 border-white border-2 h-screen w-full'></div>
-      </div>
+      <Skills></Skills>
     </main>
   )
 }
