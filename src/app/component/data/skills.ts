@@ -1,15 +1,19 @@
 const skills = [
     {
-        img: "/skills/js.png"
+        img: "/skills/js.png",
+        name : "JavaScript"
     },
     {
-        img: "/skills/js.png"
+        img: "/skills/css-3.png",
+        name: "CSS"
     },
     {
-        img: "/skills/js.png"
+        img: "/skills/html-5.png",
+        name: "HTML"
     },
     {
-        img: "/skills/js.png"
+        img: "/skills/react.png",
+        name: "ReactJS"
     },
 
 ]
