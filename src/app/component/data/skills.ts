@@ -27,5 +27,9 @@ const skills = [
         img: "/skills/NodeJS.svg",
         name: "NodeJS"
     },
+    {
+        img: "/skills/Git.svg",
+        name: "Git"
+    },
 ]
 export default skills

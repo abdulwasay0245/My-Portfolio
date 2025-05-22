@@ -2,12 +2,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import ProjectData from '../component/data/projects'
+import { scriptFont } from '../fonts/fonts'
 
 
 
-const project = () => {
+const Project = () => {
   return (
-      <section className='gradient-background py-10 overflow-hidden'>
+      <section className='gradient-background py-10 overflow-hidden text-center'>
+          <h1 className={`${scriptFont.className} text-6xl text-orange py-12`}>Work</h1>
       <div className='grid grid-cols-3 gap-4 px-10 justify-center'>
         <iframe src="https://games-website-hazel.vercel.app/" className='w-full h-full'></iframe>
         {ProjectData.map((data, index) =>
@@ -23,4 +25,4 @@ const project = () => {
   )
 }
 
-export default project
+export default Project
