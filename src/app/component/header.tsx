@@ -10,7 +10,7 @@ const Header = () => {
           <nav>
               <ul className={`flex text-center text-white  gap-4 ${roboto.className}`}>
                  <Link href="/"> <li className='hover:text-text'>About</li></Link>
-                  <Link href="/contact"><li className='hover:text-text'>Contact</li></Link>
+                  <Link href="#contact"><li className='hover:text-text'>Contact</li></Link>
                  <Link href="/project"> <li className='hover:text-text'>Portfolio</li></Link>
               </ul>
           </nav>
