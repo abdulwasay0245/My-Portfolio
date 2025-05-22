@@ -15,6 +15,17 @@ const skills = [
         img: "/skills/TailwindCSS.svg",
         name: "TailwindCSS"
     },
-
+    {
+        img: "/skills/MongoDB.svg",
+        name: "MongoDB"
+    },
+    {
+        img: "/skills/NextJS.svg",
+        name: "NextJS"
+    },
+    {
+        img: "/skills/NodeJS.svg",
+        name: "NodeJS"
+    },
 ]
 export default skills
