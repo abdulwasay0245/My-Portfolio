@@ -11,7 +11,8 @@ const Skills = () => {
             <div className='grid grid-cols-8 justify-items-center justify-center items-center gap-x-3  w-full'>
             
             {skills.map((skill) => (
-                <div key={math.random()} className='flex flex-col font-bold gap-2 text-center text-white'>
+                <div key={math.random()} className='flex flex-col font-bold items-center gap-y-2 justify-center gap-2 text-center text-white'>
+                    <div className='h-[100px] content-center'>
 
                 <Image
                     alt='s'
@@ -20,7 +21,8 @@ const Skills = () => {
                     src={skill.img}>
 
                     </Image>
-                    <h1>{ skill.name}</h1>
+                        </div>
+                    <h1 className=''>{ skill.name}</h1>
                         </div>
             ))}
                 </div>

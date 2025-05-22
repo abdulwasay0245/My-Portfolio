@@ -5,15 +5,15 @@ const skills = [
     },
     {
         img: "/skills/TypeScript.svg",
-        name: "CSS"
+        name: "TypeScript"
     },
     {
         img: "/skills/ReactJS.svg",
-        name: "HTML"
+        name: "ReactJS"
     },
     {
         img: "/skills/TailwindCSS.svg",
-        name: "ReactJS"
+        name: "TailwindCSS"
     },
 
 ]
