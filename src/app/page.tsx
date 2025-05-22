@@ -1,4 +1,4 @@
-
+import { Contact } from "./component/Contact";
 import Hero from "./component/hero";
 import Project from "./component/Project";
 
@@ -8,7 +8,7 @@ export default function Home() {
       
       <Hero />
       <Project />
-
+      <Contact />
       
   
    </div>

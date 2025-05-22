@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 import { scriptFont, roboto } from '../fonts/fonts'
-import Form from './form'
 import '../globals.css'
 import Skills from './skills'
 
@@ -17,10 +16,10 @@ const Hero = () => {
       >
        </Image>
       <div className='flex flex-col  items-center'>
-      <h1 className={`${roboto.className} text-2xl text-lightGrey text-center`}>I am <span className={`text-6xl text-orange  ${scriptFont.className}`}>Abdul Wasay</span>  a <span className={`text-6xl text-orange  ${scriptFont.className}`}>Front-End Developer</span> </h1>
+      <h1 className={`${roboto.className} text-2xl text-lightGrey text-center`}>I am <span className={`text-6xl text-orange  ${scriptFont.className} `}>Abdul Wasay</span>  a <span className={`text-6xl text-orange  ${scriptFont.className}`}>Front-End Developer</span> </h1>
       </div>
       <button className={`bg-transparent border-2 border-orange px-6 py-2 rounded-2xl text-lg font-normal text-orange hover:bg-orange hover:text-grey hover:duration-300 ${roboto.className}`}>Contact Me</button>
-      <Form />
+     
 
       <div className='flex flex-col items-center gap-2 sm:items-start sm:self-start sm:px-24 pb-7'>
       <h1 className={` text-text font-black text-2xl   ${roboto.className}`}>About</h1>
