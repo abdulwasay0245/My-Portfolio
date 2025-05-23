@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Tailwind Portfolio",
+  title: "Portfolio",
   description: "",
 };
 

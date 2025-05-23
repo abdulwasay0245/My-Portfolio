@@ -28,7 +28,7 @@ const Hero = () => {
         <p className='text-text w-[80%] sm:w-auto'>A passionate and skilled Front-End Developer with a strong focus on building exceptional user experiences. Proficient in modern technologies such as ReactJS, NextJS, Tailwind CSS, HTML, CSS, JavaScript, TypeScript, and Shadcn UI. I have a keen eye for design and enjoy creating visually appealing and functional web applications. Currently exploring the exciting world of Agentic AI development to further enhance my skillset and contribute to innovative projects.
         </p>
         </article>
- <a href="../Abdul-Wasay.pdf" download ><button className={`bg-transparent border-2 border-orange px-6 py-2 rounded-2xl mt-2 text-lg font-normal text-orange hover:bg-orange hover:text-grey hover:duration-300 ${roboto.className}`}>Download Resume</button></a>
+ <a  href="../Abdul-Wasay.pdf" download ><button className={` bg-transparent border-2 border-orange px-6 py-2 rounded-2xl mt-2 text-lg font-normal text-orange hover:bg-orange hover:text-grey hover:duration-300 ${roboto.className}`}>Download Resume</button></a>
       </div>
       <Skills></Skills>
     </main>
