@@ -13,8 +13,10 @@ html{
 @keyframes lines{
     0%{
         witdh: 0;
+        opacity: 0;
     }
     25%{
+      opacity: 100;
 width: 384px;
     }
 }

@@ -1,13 +1,23 @@
-import React from 'react'
+'use client'
+import React, { useEffect } from 'react'
 import Button from './Button'
 import { roboto } from '../fonts/fonts'
 import { Copy, Mail, Phone } from 'lucide-react'
 
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+
 export const Contact = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+      },[])
   return (
-      <section id='contact' className='flex flex-col gap-20 gradient-background items-center justify-center text-center text-white' style={roboto.style}>
-          <div className='flex flex-col gap-4  leading-tight '>
-              <Button title='Get in touch'></Button>
+      <section id='contact' className='flex flex-col gap-20 pt-16 gradient-background items-center justify-center text-center text-white' style={roboto.style}>
+          <div data-aos="zoom-in" className='flex flex-col gap-4  leading-tight '>
+              <Button  title='Get in touch'></Button>
               <p className=''>What is next? Feel free to reach out to me if you are looking for a developer,<br /> have a query, or simply want to connect.</p>
           </div>
           <div className='justify-items-center space-y-2'>

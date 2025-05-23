@@ -10,7 +10,7 @@ const Project = () => {
   return (
       <section className='gradient-background py-10 overflow-hidden text-center'>
           <h1 className={`${scriptFont.className} text-6xl text-orange py-12`}>Work</h1>
-      <div className='grid grid-cols-3 gap-4 px-10 justify-center'>
+      <div className='grid lg:grid-cols-3 gap-4 px-10 justify-center'>
         <iframe src="https://games-website-hazel.vercel.app/" className='w-full h-full'></iframe>
         {ProjectData.map((data, index) =>
            <Link key={index} href={data.link}>

@@ -5,7 +5,7 @@ import { scriptFont, roboto } from '../fonts/fonts'
 import Social from './data/socialLink'
 const Header = () => {
   return (
-      <header className= {`flex flex-col items-center p-10 gap-6 h-auto gradient-background justify-between sm:flex-row sm:h-2`}>
+      <header className= "flex flex-col items-center p-10 gap-6 h-auto animation-line gradient-background justify-between sm:flex-row sm:h-2">
           <h1 className={`text-orange text-3xl font-bold ${scriptFont.className}`}>&lt;AW /&gt;</h1>
           <nav>
               <ul className={`flex text-center text-white  gap-4 ${roboto.className}`}>
