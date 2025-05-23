@@ -32,17 +32,17 @@ export const Contact = () => {
               <p className=''>What is next? Feel free to reach out to me if you are looking for a developer,<br /> have a query, or simply want to connect.</p>
           </div>
           <div className='justify-items-center space-y-2'>
-              <div className='flex gap-2 items-center'>
+              <div data-aos = "fade-in" className='flex gap-2 items-center'>
                   <Mail />
                   <h1 className='text-3xl font-medium'>{email}</h1>
-                  <Copy className='hover:bg-slate-500 duration-100 rounded-lg' onClick={handleCopy} />
+                  <Copy className='hover:bg-slate-500 duration-100 rounded-lg animate-pulse duration-1000' onClick={handleCopy} />
                   {copied && <span className='text-green-500 text-sm ml-2' >Copied!</span>}
               </div>
 
-              <div className='flex gap-2 items-center'>
+              <div data-aos = "fade-in" className='flex gap-2 items-center'>
                   <Phone />
                   <h1 className='text-3xl font-medium'>+92 315 2127174</h1>
-                  <Copy className='hover:bg-slate-500 duration-100 rounded-lg' />
+                  <Copy className='hover:bg-slate-500  rounded-lg animate-pulse duration-1000' />
               </div>
           </div>
           <div></div>
