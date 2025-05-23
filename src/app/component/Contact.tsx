@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from './Button'
 import { roboto } from '../fonts/fonts'
 import { Copy, Mail, Phone } from 'lucide-react'
@@ -8,6 +8,17 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 
 export const Contact = () => {
+    const email = "abdulwasay0245@gmail.com"
+    const [copied, setcopied] = useState(false)
+    const handleCopy = async () => {
+      try {
+          navigator.clipboard.writeText(email)
+          setcopied(true);
+          setTimeout(()=> setcopied(false), 1500)
+      } catch (error) {
+        console.error(error)
+      }
+    }
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -23,8 +34,9 @@ export const Contact = () => {
           <div className='justify-items-center space-y-2'>
               <div className='flex gap-2 items-center'>
                   <Mail />
-                  <h1 className='text-3xl font-medium'>abdulwasay0245@gmail.com</h1>
-                  <Copy className='hover:bg-slate-500 duration-100 rounded-lg' />
+                  <h1 className='text-3xl font-medium'>{email}</h1>
+                  <Copy className='hover:bg-slate-500 duration-100 rounded-lg' onClick={handleCopy} />
+                  {copied && <span className='text-green-500 text-sm ml-2' >Copied!</span>}
               </div>
 
               <div className='flex gap-2 items-center'>

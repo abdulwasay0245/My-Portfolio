@@ -31,5 +31,9 @@ const skills = [
         img: "/skills/Git.svg",
         name: "Git"
     },
+    {
+        img: "/skills/rest-api-icon.svg",
+        name: "Rest API's"
+    },
 ]
 export default skills

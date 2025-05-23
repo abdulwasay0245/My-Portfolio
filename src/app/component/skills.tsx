@@ -16,10 +16,11 @@ const Skills = () => {
     return (
         
         <div className='py-6 space-y-2 text-center '>
-        <h1 className={`${scriptFont.className} text-6xl text-orange`}>Skills</h1>
-            <div className='grid grid-cols-8 justify-items-center justify-center items-center  gap-x-8  w-full'>
+        <h1 className={`${scriptFont.className} text-6xl text-orange `} data-aos = "fade-in" >Skills</h1>
+            <div className='grid grid-cols-9 justify-items-center justify-center items-center gap-x-8  w-full'>
             
-            {skills.map((skill) => (
+                {skills.map((skill) => (
+                
                 <div data-aos = "fade-right" key={math.random()} className='flex flex-col font-bold items-center  justify-center  text-center text-white'>
                     <div className='h-[100px] content-center'>
 
@@ -28,7 +29,7 @@ const Skills = () => {
                     width={60}
                     height={60}
                             src={skill.img}
-                            className='object-cover'
+                            className={`${skill.name === "Rest API's" && "invert" } ${skill.name === "MongoDB" && "h-14 w-14"}`}
                     >
 
                     </Image>
