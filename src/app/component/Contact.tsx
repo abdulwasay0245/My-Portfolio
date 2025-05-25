@@ -35,7 +35,7 @@ export const Contact = () => {
               <div data-aos = "fade-in" className='flex gap-2 items-center'>
                   <Mail />
                   <h1 className='text-3xl font-medium'>{email}</h1>
-                  <Copy className='hover:bg-slate-500 duration-100 rounded-lg animate-pulse duration-1000' onClick={handleCopy} />
+                  <Copy className='hover:bg-slate-500  rounded-lg animate-pulse duration-1000' onClick={handleCopy} />
                   {copied && <span className='text-green-500 text-sm ml-2' >Copied!</span>}
               </div>
 
