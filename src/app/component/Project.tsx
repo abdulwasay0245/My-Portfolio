@@ -2,7 +2,6 @@
 
 import React from "react";
 import { ExternalLink } from "lucide-react"; 
-import Image from "next/image";
 
 const projects = [
   {
@@ -57,7 +56,7 @@ export default function Portfolio() {
               key={project.id}
               className="bg-[#14141f] rounded-2xl overflow-hidden shadow-lg hover:shadow-pink-400/40 transition-shadow duration-300"
             >
-              <Image
+              <img
                 src={project.img}
                 alt={project.title}
                 className="w-full h-48 object-cover"
