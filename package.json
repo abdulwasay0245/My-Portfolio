@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@google/genai": "^0.13.0",
+    "animejs": "^4.0.2",
     "aos": "^2.3.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
