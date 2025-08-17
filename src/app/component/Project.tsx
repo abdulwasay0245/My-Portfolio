@@ -8,29 +8,29 @@ const projects = [
     id: 1,
     title: "VRR Gaming (NEXTJS, TailwindCSS, TS)",
     img: "/projectimg/gamingmockup.png",
-    link: "#",
+    link: "https://games-website-hazel.vercel.app/",
   },
   {
     id: 2,
-    title: "Website Coding (HTML, CSS, JS)",
-    img: "/img2.jpg",
-    link: "#",
+    title: "Resume Craft AI Agent(NextJS, FastAPI, TypeScript)",
+    img: "/projectimg/AiAgent.png",
+    link: "https://resumecraft-pearl.vercel.app/",
   },
   {
     id: 3,
-    title: "Website Coding (HTML, CSS, JS)",
-    img: "/img3.jpg",
-    link: "#",
+    title: "Comforty E-Commerce (NextJS, TailwindCSS, TS)",
+    img: "/projectimg/hackathon.png",
+    link: "https://hackathon2-giaic.vercel.app/",
   },
   {
     id: 4,
-    title: "Website Coding (HTML, CSS, JS)",
+    title: "Food Wagon (NextJS, TailwindCSS, TS)",
     img: "/img4.jpg",
-    link: "#",
+    link: "https://food-wagon-sepia.vercel.app/",
   },
   {
     id: 5,
-    title: "Website Coding (HTML, CSS, JS)",
+    title: "FullStack Anonymous Message App (NextJS, React-Hook-Form, TS,MongoDB,Resend Email)",
     img: "/img5.jpg",
     link: "#",
   },
@@ -44,10 +44,10 @@ const projects = [
 
 export default function Portfolio() {
   return (
-    <section className="bg-[#0d0d14] py-16 px-6">
+    <section id="project" className="bg-[#0d0d14] py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-pink-400 text-xl uppercase font-bold tracking-widest mb-10">
-          Portfolio
+        <h2 className="text-orange text-xl uppercase text-center font-bold tracking-widest mb-10">
+          Projects
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
