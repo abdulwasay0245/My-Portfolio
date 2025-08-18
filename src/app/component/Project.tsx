@@ -7,19 +7,19 @@ const projects = [
   {
     id: 1,
     title: "VRR Gaming (NEXTJS, TailwindCSS, TS)",
-    img: "/projectimg/gamingmockup.png",
+    img: "/projectImg/gamingmockup.png",
     link: "https://games-website-hazel.vercel.app/",
   },
   {
     id: 2,
     title: "Resume Craft AI Agent(NextJS, FastAPI, TypeScript)",
-    img: "/projectimg/AiAgent.png",
+    img: "/projectImg/AiAgent.png",
     link: "https://resumecraft-pearl.vercel.app/",
   },
   {
     id: 3,
     title: "Comforty E-Commerce (NextJS, TailwindCSS, TS)",
-    img: "/projectimg/hackathon.png",
+    img: "/projectImg/hackathon.png",
     link: "https://hackathon2-giaic.vercel.app/",
   },
   {
