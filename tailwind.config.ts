@@ -9,28 +9,13 @@ export default {
   ],
   theme: {
   	extend: {
-  		screens: {
-  			'2lg-max': {
-  				max: '1280px'
-  			},
-  			'lg-max': {
-  				max: '1024px'
-  			},
-  			'md-max': {
-  				max: '768px'
-  			},
-  			'sm-max': {
-  				max: '640px'
-  			},
-  			'xsm-max': {
-  				max: '320px'
-  			}
-  		},
   		colors: {
   			orange: '#f8c970',
   			grey: '#30333a',
-  			lightGrey: '#6a6b6f',
-  			text: '#c9cbcd',
+  			lightGrey: '#9ca3af',
+  			text: '#e5e7eb',
+            'primary-deep': '#1a1a2e',
+            'accent-glow': '#4f46e5',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

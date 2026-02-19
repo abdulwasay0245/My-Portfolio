@@ -2,7 +2,7 @@
 import { Contact } from "./component/Contact";
 import Hero from "./component/hero";
 import Project from "./component/Project";
-import 'aos/dist/aos.css';
+
 
 
 

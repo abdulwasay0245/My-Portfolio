@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { scriptFont } from '../fonts/fonts'
 import skills from './data/skills';
 import { useEffect } from 'react';
-import 'aos/dist/aos.css';
+
 import AOS from 'aos';
 
 const Skills = () => {
@@ -17,7 +17,7 @@ const Skills = () => {
         
         <div className='py-6 space-y-2 text-center '>
         <h1 className={`${scriptFont.className} text-6xl text-orange `} data-aos = "fade-in" >Skills</h1>
-            <div className='grid grid-cols-9 justify-items-center justify-center items-center gap-x-8  w-full'>
+            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-9 justify-items-center justify-center items-center gap-8 w-full px-4'>
             
                 {skills.map((skill) => (
                 
