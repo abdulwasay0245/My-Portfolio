@@ -1,60 +1,88 @@
+"use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ExternalLink, Github, Terminal, Sparkles, Layers } from "lucide-react"; 
 import { roboto } from '../fonts/fonts';
+import { client, urlFor } from "@/lib/sanity.client";
 
-const projects = [
+const PROJECTS_QUERY = `*[_type == "project"]{
+  _id,
+  title,
+  description,
+  image,
+  tech,
+  link,
+  github
+}`;
+
+const staticProjects = [
   {
-    id: 1,
+    _id: "1",
     title: "VRR Gaming",
     tech: ["Next.js", "TailwindCSS", "TS"],
-    img: "/projectImg/gamingmockup.png",
+    image: "/projectImg/gamingmockup.png",
     link: "https://games-website-hazel.vercel.app/",
     description: "A high-performance gaming platform built for seamless user experience and dynamic content delivery."
   },
   {
-    id: 2,
+    _id: "2",
     title: "Resume Craft AI Agent",
     tech: ["Next.js", "FastAPI", "TS"],
-    img: "/projectImg/AiAgent.png",
+    image: "/projectImg/AiAgent.png",
     link: "https://resumecraft-pearl.vercel.app/",
     description: "Intelligent resume builder leveraging AI to optimize professional profiles and streamline applications."
   },
   {
-    id: 3,
+    _id: "3",
     title: "Comforty E-Commerce",
     tech: ["Next.js", "TailwindCSS", "TS"],
-    img: "/projectImg/hackathon.png",
+    image: "/projectImg/hackathon.png",
     link: "https://hackathon2-giaic.vercel.app/",
     description: "A modern e-commerce storefront with optimized performance and user-centric design patterns."
   },
   {
-    id: 4,
+    _id: "4",
     title: "Food Wagon",
     tech: ["Next.js", "TailwindCSS", "TS"],
-    img: "/img4.jpg",
+    image: "/img4.jpg",
     link: "https://food-wagon-sepia.vercel.app/",
     description: "Feature-rich food delivery application featuring real-time tracking and intuitive ordering flows."
   },
   {
-    id: 5,
+    _id: "5",
     title: "Anonymous Message App",
     tech: ["Next.js", "MongoDB", "Resend"],
-    img: "/img5.jpg",
+    image: "/img5.jpg",
     link: "#",
     description: "Secure, privacy-focused messaging platform with encrypted communication and anonymous interactions."
   },
   {
-    id: 6,
+    _id: "6",
     title: "Website Coding",
     tech: ["HTML", "CSS", "JS"],
-    img: "/img6.jpg",
+    image: "/img6.jpg",
     link: "#",
     description: "A foundational showcase of clean code architecture and responsive web design principles."
   },
 ];
 
 export default function Portfolio() {
+  const [projects, setProjects] = useState<any[]>(staticProjects);
+
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        const data = await client.fetch(PROJECTS_QUERY);
+        if (data && data.length > 0) {
+          setProjects(data);
+        }
+      } catch (error) {
+        console.error("Error fetching projects from Sanity:", error);
+      }
+    }
+    fetchProjects();
+  }, []);
+
   return (
     <section id="project" className="w-full py-32 px-6 relative overflow-hidden bg-background">
       {/* Futuristic Background Elements */}
@@ -81,7 +109,7 @@ export default function Portfolio() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project, index) => (
             <div
-              key={project.id}
+              key={project._id}
               data-aos="fade-up"
               data-aos-delay={index * 100}
               className="group relative h-full flex flex-col"
@@ -95,7 +123,7 @@ export default function Portfolio() {
                   
                   {/* Glass Header Info */}
                   <div className="absolute top-4 left-4 z-20 flex gap-2">
-                    {project.tech.slice(0, 2).map((t, i) => (
+                    {project.tech?.slice(0, 2).map((t: string, i: number) => (
                         <span key={i} className="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-[10px] uppercase tracking-widest text-white/80">
                             {t}
                         </span>
@@ -103,7 +131,7 @@ export default function Portfolio() {
                   </div>
 
                   <img
-                    src={project.img}
+                    src={typeof project.image === 'string' ? project.image : (project.image ? urlFor(project.image).url() : '/placeholder.png')}
                     alt={project.title}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out"
                   />
@@ -111,7 +139,7 @@ export default function Portfolio() {
                   {/* Floating Action Buttons */}
                   <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <a
-                      href={project.link}
+                      href={project.link || "#"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-4 bg-orange text-black rounded-2xl transform scale-75 group-hover:scale-100 transition-all duration-500 hover:bg-white flex items-center gap-2 font-bold text-sm"
@@ -138,7 +166,7 @@ export default function Portfolio() {
 
                     <div className="mt-auto">
                         <div className="flex flex-wrap gap-2 mb-6 uppercase tracking-tighter">
-                            {project.tech.map((t, i) => (
+                            {project.tech?.map((t: string, i: number) => (
                                 <span key={i} className="text-[10px] text-gray-500 flex items-center gap-1">
                                     <span className="w-1 h-1 bg-orange/40 rounded-full"></span>
                                     {t}
@@ -152,8 +180,14 @@ export default function Portfolio() {
                                 <span className="font-medium">Modern UI</span>
                             </div>
                             <div className="flex gap-4">
-                                <Github size={18} className="text-white/20 hover:text-white cursor-pointer transition-colors" />
-                                <ExternalLink size={18} className="text-white/20 hover:text-white cursor-pointer transition-colors" />
+                                {project.github && (
+                                  <a href={project.github} target="_blank" rel="noopener noreferrer">
+                                    <Github size={18} className="text-white/20 hover:text-white cursor-pointer transition-colors" />
+                                  </a>
+                                )}
+                                <a href={project.link || "#"} target="_blank" rel="noopener noreferrer">
+                                  <ExternalLink size={18} className="text-white/20 hover:text-white cursor-pointer transition-colors" />
+                                </a>
                             </div>
                         </div>
                     </div>

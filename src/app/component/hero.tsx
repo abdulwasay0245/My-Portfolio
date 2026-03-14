@@ -14,7 +14,8 @@ const Hero = () => {
                 src="/myImg.gif"
                 width={200}
                 height={200}
-                className='rounded-full object-cover'
+            className='rounded-full object-cover'
+            unoptimized
               />
         </div>
       </div>
