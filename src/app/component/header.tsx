@@ -1,33 +1,34 @@
 import React from 'react'
 import Link from 'next/link'
-import { scriptFont, roboto } from '../fonts/fonts'
-
+import { roboto } from '../fonts/fonts'
 import Social from './data/socialLink'
+import { ThemeToggle } from './ThemeToggle'
+
 const Header = () => {
   return (
-      <header className= "sticky top-0 z-50 flex flex-col items-center p-6 gap-6 h-auto transition-all duration-300 backdrop-blur-md bg-background/70 border-b border-white/10 justify-between sm:flex-row sm:h-20 w-full mb-8">
-          <h1 className={`animate-fade-in text-orange text-3xl font-bold ${scriptFont.className} drop-shadow-md`}>&lt;AW /&gt;</h1>
+      <header className="sticky top-0 z-50 flex flex-col items-center p-6 gap-6 h-auto transition-all duration-300 bg-background/80 backdrop-blur-xl border-b border-border justify-between sm:flex-row sm:h-20 w-full mb-8">
+          <h1 className={`text-foreground text-2xl font-black uppercase tracking-tighter hover:opacity-70 transition-opacity ${roboto.className}`}>
+             AW<span className="text-muted-foreground">.</span>
+          </h1>
           <nav>
-              <ul className={`flex text-center text-gray-300 gap-8 ${roboto.className} font-medium tracking-wide`}>
-                 <Link href="/"><li className='hover:text-orange transition-colors duration-300 relative group'>
+              <ul className={`flex text-center text-muted-foreground gap-8 ${roboto.className} font-medium tracking-widest text-xs uppercase`}>
+                 <Link href="/"><li className='hover:text-foreground transition-colors duration-300 relative group'>
                     About
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange transition-all duration-300 group-hover:w-full"></span>
                  </li></Link>
-                  <Link href="#contact"><li className='hover:text-orange transition-colors duration-300 relative group'>
+                  <Link href="#contact"><li className='hover:text-foreground transition-colors duration-300 relative group'>
                     Contact
-                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange transition-all duration-300 group-hover:w-full"></span>
                   </li></Link>
-                 <Link href="#project"><li className='hover:text-orange transition-colors duration-300 relative group'>
+                 <Link href="#project"><li className='hover:text-foreground transition-colors duration-300 relative group'>
                     Portfolio
-                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange transition-all duration-300 group-hover:w-full"></span>
                  </li></Link>
               </ul>
           </nav>
-          <div className='hidden gap-3 sm:flex'>
+          <div className='hidden gap-4 sm:flex items-center text-muted-foreground'>
+              <ThemeToggle />
+              <div className="w-px h-4 bg-border mx-2"></div>
               <Social />
           </div>
-   </header>
-      
+    </header>
   )
 }
 

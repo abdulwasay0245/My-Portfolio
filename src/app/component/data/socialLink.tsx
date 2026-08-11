@@ -5,12 +5,12 @@ import React from 'react'
 interface SocialLink {
   address: string;
   source: string;
-  alt?: string; // Optional alt text for accessibility
+  alt?: string; 
 }
 
 const socialData :SocialLink[]= [
     {
-        address: "https://github.com/abdulwasay0245",
+        address: "https://github.com/wasaydevops0",
         source : "/github.png"
     },
       {

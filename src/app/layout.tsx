@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import 'aos/dist/aos.css';
 import Header from "./component/header";
 import Footer from "./component/footer";
+import SmoothScroll from "./component/SmoothScroll";
+import ExtraordinaryElements from "./component/ExtraordinaryElements";
+import Donut3D from "./component/Donut3D";
+import { ThemeProvider } from "./component/ThemeProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,13 +30,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="cursor-default" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <SmoothScroll>
+            <div className="noise-overlay" />
+            <Donut3D />
+            <ExtraordinaryElements />
+            <Header />
+            {children}
+            <Footer />
+          </SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -10,12 +10,6 @@ export default {
   theme: {
   	extend: {
   		colors: {
-  			orange: '#f8c970',
-  			grey: '#30333a',
-  			lightGrey: '#9ca3af',
-  			text: '#e5e7eb',
-            'primary-deep': '#1a1a2e',
-            'accent-glow': '#4f46e5',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -49,13 +43,6 @@ export default {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
-  			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
-  			}
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
