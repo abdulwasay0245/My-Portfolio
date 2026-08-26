@@ -29,7 +29,7 @@ export default function Services() {
       y: 0,
       scale: 1,
       transition: { 
-        type: "spring", 
+        type: "spring" as any, 
         stiffness: 70, 
         damping: 15 
       }
@@ -49,7 +49,7 @@ export default function Services() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ type: "spring", stiffness: 60, damping: 20 }}
+          transition={{ type: "spring" as any, stiffness: 60, damping: 20 }}
           className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8"
         >
           <h2 className="font-urbanist font-medium text-[48px] md:text-[56px] text-white leading-tight">
@@ -73,7 +73,7 @@ export default function Services() {
               key={idx} 
               variants={cardVariants}
               whileHover={{ y: -10 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              transition={{ type: "spring" as any, stiffness: 300, damping: 20 }}
               className="bg-white/5 border border-white/10 backdrop-blur-md rounded-[32px] p-5 flex flex-col gap-6 relative group"
             >
               <div className="pb-4 border-b border-white/10 mt-2">
@@ -96,7 +96,7 @@ export default function Services() {
                    {/* Fake Mobile Screens */}
                    <motion.div 
                      whileHover={{ y: -10 }}
-                     transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                     transition={{ type: "spring" as any, stiffness: 200, damping: 15 }}
                      className="w-[45%] h-[120%] bg-[#B89B85] rounded-xl shadow-md -translate-y-4 flex flex-col p-2"
                    >
                       <div className="w-full h-24 bg-white/20 rounded-lg mb-2"></div>
@@ -105,7 +105,7 @@ export default function Services() {
                    </motion.div>
                    <motion.div 
                      whileHover={{ y: -10 }}
-                     transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                     transition={{ type: "spring" as any, stiffness: 200, damping: 15 }}
                      className="w-[45%] h-[120%] bg-[#B89B85] rounded-xl shadow-md translate-y-4 flex flex-col p-2"
                    >
                       <div className="w-full h-12 bg-white/20 rounded-lg mb-2"></div>
@@ -117,7 +117,7 @@ export default function Services() {
                 <motion.div 
                   whileHover={{ scale: 1.15, rotate: 10 }}
                   whileTap={{ scale: 0.9 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  transition={{ type: "spring" as any, stiffness: 400, damping: 10 }}
                   className="absolute -bottom-2 -right-2 bg-[#1A1F2C] text-white hover:bg-brand-orange cursor-pointer rounded-full w-[84px] h-[84px] flex items-center justify-center shadow-2xl z-30"
                 >
                   <span className="text-3xl font-light">↗</span>

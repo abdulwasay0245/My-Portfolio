@@ -16,7 +16,7 @@ const Testimonials = () => {
     visible: { 
       opacity: 0.5, 
       scale: 1,
-      transition: { type: "spring", stiffness: 60, damping: 15 }
+      transition: { type: "spring" as any, stiffness: 60, damping: 15 }
     }
   };
 
@@ -25,7 +25,7 @@ const Testimonials = () => {
     visible: { 
       opacity: 1, 
       scale: 1,
-      transition: { type: "spring", stiffness: 60, damping: 15 }
+      transition: { type: "spring" as any, stiffness: 60, damping: 15 }
     }
   };
 
@@ -43,7 +43,7 @@ const Testimonials = () => {
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ type: "spring", stiffness: 60, damping: 20 }}
+            transition={{ type: "spring" as any, stiffness: 60, damping: 20 }}
             className="font-urbanist font-medium text-[48px] md:text-[56px] text-white text-center leading-[1.15] relative"
           >
             Testimonials That<br />

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const Hero = () => {
   // Common spring transition for entrance
   const springTransition = {
-    type: "spring",
+    type: "spring" as any,
     stiffness: 80,
     damping: 15,
     mass: 1
@@ -103,7 +103,7 @@ const Hero = () => {
             <motion.a 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              transition={{ type: "spring" as any, stiffness: 400, damping: 17 }}
               href="#portfolio" 
               className="bg-brand-orange text-white rounded-[60px] px-8 py-3 font-urbanist font-semibold text-lg flex items-center gap-2 hover:opacity-90"
             >
@@ -112,7 +112,7 @@ const Hero = () => {
             <motion.a 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              transition={{ type: "spring" as any, stiffness: 400, damping: 17 }}
               href="#contact" 
               className="text-white px-8 py-3 font-urbanist font-semibold text-lg hover:bg-white/10 rounded-[60px]"
             >

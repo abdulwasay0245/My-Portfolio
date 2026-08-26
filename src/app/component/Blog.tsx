@@ -44,7 +44,7 @@ export default function Blog() {
       opacity: 1, 
       y: 0,
       scale: 1,
-      transition: { type: "spring", stiffness: 70, damping: 15 }
+      transition: { type: "spring" as any, stiffness: 70, damping: 15 }
     }
   };
 
@@ -57,7 +57,7 @@ export default function Blog() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ type: "spring", stiffness: 60, damping: 20 }}
+          transition={{ type: "spring" as any, stiffness: 60, damping: 20 }}
           className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6"
         >
           <h2 className="font-urbanist font-bold text-[48px] md:text-[56px] text-[#2A3240] leading-[1.1]">
@@ -86,7 +86,7 @@ export default function Blog() {
               key={idx} 
               variants={cardVariants}
               whileHover={{ y: -10 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              transition={{ type: "spring" as any, stiffness: 300, damping: 20 }}
               className="flex flex-col gap-6 group cursor-pointer"
             >
               
@@ -95,7 +95,7 @@ export default function Blog() {
                  {/* Solid Color Background based on screenshot */}
                  <motion.div 
                    whileHover={{ scale: 1.05 }}
-                   transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                   transition={{ type: "spring" as any, stiffness: 100, damping: 15 }}
                    className={`absolute inset-0 ${blog.bgColor} flex items-center justify-center`}
                  >
                     {/* Abstract Shapes to mimic the screenshot UI */}
@@ -109,7 +109,7 @@ export default function Blog() {
                     <motion.div 
                       whileHover={{ scale: 1.15, rotate: 10 }}
                       whileTap={{ scale: 0.9 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      transition={{ type: "spring" as any, stiffness: 400, damping: 10 }}
                       className="w-[72px] h-[72px] bg-[#1A1F2C] text-white hover:bg-brand-orange rounded-full flex items-center justify-center shadow-inner cursor-pointer"
                     >
                         <span className="text-2xl font-light leading-none mb-0.5">↗</span>

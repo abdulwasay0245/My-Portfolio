@@ -16,7 +16,7 @@ export const Footer = () => {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { type: "spring", stiffness: 60, damping: 15 }
+      transition: { type: "spring" as any, stiffness: 60, damping: 15 }
     }
   };
 
@@ -30,7 +30,7 @@ export const Footer = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ type: "spring", stiffness: 60, damping: 20 }}
+            transition={{ type: "spring" as any, stiffness: 60, damping: 20 }}
             className="font-urbanist font-bold text-[48px] md:text-[56px] text-white leading-tight"
           >
             Lets Connect there
@@ -41,7 +41,7 @@ export const Footer = () => {
             viewport={{ once: true, margin: "-100px" }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 60, damping: 20 }}
+            transition={{ type: "spring" as any, stiffness: 60, damping: 20 }}
             className="bg-brand-orange text-white font-sans font-medium text-lg px-8 py-3.5 rounded-full hover:bg-brand-orangeDark transition-colors flex items-center gap-2"
           >
             Hire me <span className="font-light text-xl leading-none mb-0.5">↗</span>

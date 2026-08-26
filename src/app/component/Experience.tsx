@@ -12,26 +12,20 @@ export default function Experience() {
       color: "orange"
     },
     {
-      company: "Sugee Pvt limited, Mumbai",
-      date: "Sep 2020- July 2023",
-      role: "UI/UX Designer",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales",
+      company: "Freelance, Remote",
+      date: "Feb 2025- Present",
+      role: "Full Stack Developer",
+      desc: "Developed and maintained web applications using React, Node.js, and MongoDB, implementing responsive designs and optimizing performance for a seamless user experience.",
       color: "dark"
     },
     {
-      company: "Cinetstox, Mumbai",
-      date: "Sep 2023",
-      role: "Lead UX Designer",
-      desc: "",
+      company: "MAJU, Karachi",
+      date: "July 2026- Sept 2026",
+      role: "SQA and Automation Intern",
+      desc: "Conducted software quality assurance testing and developed automated test scripts to ensure the reliability and functionality of web applications, contributing to improved product quality.",
       color: "orange"
     },
-    {
-      company: "Cinetstox, Mumbai",
-      date: "Sep 2023",
-      role: "Lead UX Designer",
-      desc: "",
-      color: "orange"
-    },
+   
   ];
 
   return (
@@ -41,7 +35,7 @@ export default function Experience() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ type: "spring", stiffness: 60, damping: 20 }}
+          transition={{ type: "spring" as any, stiffness: 60, damping: 20 }}
           className="font-urbanist font-bold text-[48px] md:text-[56px] text-center mb-24"
         >
           <span className="text-[#2A3240]">My </span>
@@ -65,7 +59,7 @@ export default function Experience() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ type: "spring", stiffness: 50, damping: 15, delay: idx * 0.2 }}
+                transition={{ type: "spring" as any, stiffness: 50, damping: 15, delay: idx * 0.2 }}
                 className="relative flex items-center justify-between w-full"
               >
                 
@@ -84,7 +78,7 @@ export default function Experience() {
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ type: "spring", stiffness: 200, damping: 10, delay: 0.3 + (idx * 0.2) }}
+                  transition={{ type: "spring" as any, stiffness: 200, damping: 10, delay: 0.3 + (idx * 0.2) }}
                   className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center bg-white z-10 w-[36px] h-[36px] rounded-full border border-dashed border-[#2A3240]"
                 >
                    <div className={`w-[20px] h-[20px] rounded-full ${exp.color === 'orange' ? 'bg-brand-orange' : 'bg-[#2A3240]'}`}></div>

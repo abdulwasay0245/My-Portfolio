@@ -10,7 +10,15 @@ const Clients = () => {
     { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
       src: "/clients/dynamo.jpg"
     },
-    
+     { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
+      src: "/clients/5drevive.jpg"
+    },
+    { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
+      src: "/clients/orgafresh.jpeg"
+    },
+      { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
+      src: "/clients/versatile.jfif"
+    },
   ];
 
   return (
@@ -21,7 +29,7 @@ const Clients = () => {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 60, damping: 20 }}
+          transition={{ type: "spring" as any, stiffness: 60, damping: 20 }}
           className="flex-shrink-0 text-center md:text-left z-20 bg-white md:pr-4"
         >
           <p className="text-sm font-urbanist font-semibold text-neutral-400 uppercase tracking-widest">Trusted By</p>

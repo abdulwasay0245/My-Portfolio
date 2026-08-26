@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Outfit, Urbanist, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./component/header";
-import Footer from "./component/footer";
 import SmoothScroll from "./component/SmoothScroll";
 
 const outfit = Outfit({

@@ -19,7 +19,7 @@ export default function Portfolio() {
       opacity: 1, 
       y: 0, 
       scale: 1,
-      transition: { type: "spring", stiffness: 60, damping: 15 }
+      transition: { type: "spring" as any, stiffness: 60, damping: 15 }
     }
   };
 
@@ -32,7 +32,7 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ type: "spring", stiffness: 60, damping: 20 }}
+          transition={{ type: "spring" as any, stiffness: 60, damping: 20 }}
           className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6"
         >
           <h2 className="font-urbanist font-bold text-[48px] md:text-[64px] leading-[1.1]">
@@ -61,7 +61,7 @@ export default function Portfolio() {
           <motion.div 
             variants={itemVariants}
             whileHover={{ y: -10 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            transition={{ type: "spring" as any, stiffness: 300, damping: 20 }}
             className="w-full aspect-[4/3] bg-neutral-200 rounded-3xl overflow-hidden relative shadow-sm group cursor-pointer border border-neutral-100"
           >
              {/* Fake Lirante Image content based on screenshot */}
@@ -82,7 +82,7 @@ export default function Portfolio() {
           <motion.div 
             variants={itemVariants}
             whileHover={{ y: -10 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            transition={{ type: "spring" as any, stiffness: 300, damping: 20 }}
             className="w-full aspect-[4/3] bg-neutral-200 rounded-3xl overflow-hidden relative shadow-sm group cursor-pointer border border-neutral-100"
           >
              <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5] to-[#E3DCD5] flex flex-col justify-between p-8 pt-12">
@@ -139,7 +139,7 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ type: "spring", stiffness: 60, damping: 15 }}
+          transition={{ type: "spring" as any, stiffness: 60, damping: 15 }}
           className="flex flex-col items-center text-center max-w-[800px] mx-auto gap-4"
         >
           <div className="flex items-center justify-center gap-4">

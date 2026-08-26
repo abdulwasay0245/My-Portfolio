@@ -16,7 +16,7 @@ export default function CTA() {
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ type: "spring", stiffness: 60, damping: 20 }}
+          transition={{ type: "spring" as any, stiffness: 60, damping: 20 }}
           className="font-urbanist font-bold text-[48px] md:text-[64px] text-center leading-[1.15] mb-12"
         >
           <span className="text-[#2A3240]">Have an Awesome Project<br/>Idea? </span>
@@ -28,7 +28,7 @@ export default function CTA() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ type: "spring", stiffness: 70, damping: 15, delay: 0.2 }}
+          transition={{ type: "spring" as any, stiffness: 70, damping: 15, delay: 0.2 }}
           className="w-full max-w-[600px] border border-neutral-200 rounded-full p-2 flex items-center justify-between bg-white shadow-sm mb-10"
         >
           <div className="flex items-center flex-1 px-2">
