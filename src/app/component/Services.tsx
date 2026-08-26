@@ -1,9 +1,10 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
+import { urlFor } from '@/lib/sanity.client';
 
-export default function Services() {
-  const services = [
+export default function Services({ services = [] }: { services?: any[] }) {
+  const defaultServices = [
     { title: "Web Development" },
     { title: "Ai Integration" },
     { title: "Landing Page" },
@@ -11,6 +12,8 @@ export default function Services() {
     { title: "Dashboard" },
     { title: "Workflow" }
   ];
+
+  const displayServices = services && services.length > 0 ? services : defaultServices;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -68,9 +71,9 @@ export default function Services() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 relative"
         >
-          {services.map((service, idx) => (
+          {displayServices.map((service: any, idx: number) => (
             <motion.div 
-              key={idx} 
+              key={service._id || idx} 
               variants={cardVariants}
               whileHover={{ y: -10 }}
               transition={{ type: "spring" as any, stiffness: 300, damping: 20 }}
@@ -80,7 +83,7 @@ export default function Services() {
                 <h3 className="text-[28px] text-white font-urbanist font-medium px-2">{service.title}</h3>
               </div>
               
-              <div className="relative mt-4">
+              <div className="relative mt-4 flex-grow">
                 {/* Stacked effect layers */}
                 <div className="absolute -top-6 left-8 right-8 h-10 bg-white/5 rounded-t-2xl border border-white/10 border-b-0"></div>
                 <div className="absolute -top-3 left-4 right-4 h-10 bg-white/10 rounded-t-2xl border border-white/10 border-b-0 backdrop-blur-sm z-10"></div>
@@ -93,53 +96,62 @@ export default function Services() {
                     WebkitMaskImage: 'radial-gradient(circle at calc(100% - 10px) calc(100% - 10px), transparent 75px, black 76px)'
                   }}
                 >
-                   {/* Fake Mobile Screens */}
-                   <motion.div 
-                     whileHover={{ y: -10 }}
-                     transition={{ type: "spring" as any, stiffness: 200, damping: 15 }}
-                     className="w-[45%] h-[120%] bg-[#B89B85] rounded-xl shadow-md -translate-y-4 flex flex-col p-2"
-                   >
-                      <div className="w-full h-24 bg-white/20 rounded-lg mb-2"></div>
-                      <div className="w-full h-12 bg-white/20 rounded-lg mb-2"></div>
-                      <div className="w-full h-12 bg-white/20 rounded-lg"></div>
-                   </motion.div>
-                   <motion.div 
-                     whileHover={{ y: -10 }}
-                     transition={{ type: "spring" as any, stiffness: 200, damping: 15 }}
-                     className="w-[45%] h-[120%] bg-[#B89B85] rounded-xl shadow-md translate-y-4 flex flex-col p-2"
-                   >
-                      <div className="w-full h-12 bg-white/20 rounded-lg mb-2"></div>
-                      <div className="w-full flex-1 bg-white/20 rounded-lg mb-2"></div>
-                   </motion.div>
+                   {service.image ? (
+                     <img src={urlFor(service.image).url()} alt={service.title} className="absolute inset-0 w-full h-full object-cover" />
+                   ) : (
+                     <>
+                       {/* Fake Mobile Screens */}
+                       <motion.div 
+                         whileHover={{ y: -10 }}
+                         transition={{ type: "spring" as any, stiffness: 200, damping: 15 }}
+                         className="w-[45%] h-[120%] bg-[#B89B85] rounded-xl shadow-md -translate-y-4 flex flex-col p-2"
+                       >
+                          <div className="w-full h-24 bg-white/20 rounded-lg mb-2"></div>
+                          <div className="w-full h-12 bg-white/20 rounded-lg mb-2"></div>
+                          <div className="w-full h-12 bg-white/20 rounded-lg"></div>
+                       </motion.div>
+                       <motion.div 
+                         whileHover={{ y: -10 }}
+                         transition={{ type: "spring" as any, stiffness: 200, damping: 15 }}
+                         className="w-[45%] h-[120%] bg-[#B89B85] rounded-xl shadow-md translate-y-4 flex flex-col p-2"
+                       >
+                          <div className="w-full h-12 bg-white/20 rounded-lg mb-2"></div>
+                          <div className="w-full flex-1 bg-white/20 rounded-lg mb-2"></div>
+                       </motion.div>
+                     </>
+                   )}
                 </div>
 
                 {/* Corner Button */}
-                <motion.div 
-                  whileHover={{ scale: 1.15, rotate: 10 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: "spring" as any, stiffness: 400, damping: 10 }}
-                  className="absolute -bottom-2 -right-2 bg-[#1A1F2C] text-white hover:bg-brand-orange cursor-pointer rounded-full w-[84px] h-[84px] flex items-center justify-center shadow-2xl z-30"
-                >
-                  <span className="text-3xl font-light">↗</span>
-                </motion.div>
+                <a href={service.link || '#'} target="_blank" rel="noreferrer">
+                  <motion.div 
+                    whileHover={{ scale: 1.15, rotate: 10 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ type: "spring" as any, stiffness: 400, damping: 10 }}
+                    className="absolute -bottom-2 -right-2 bg-[#1A1F2C] text-white hover:bg-brand-orange cursor-pointer rounded-full w-[84px] h-[84px] flex items-center justify-center shadow-2xl z-30"
+                  >
+                    <span className="text-3xl font-light">↗</span>
+                  </motion.div>
+                </a>
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Carousel Indicators */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 1 }}
-          className="flex justify-center items-center gap-2 mt-16"
-        >
-          <div className="w-10 h-2.5 bg-brand-orange rounded-full"></div>
-          <div className="w-2.5 h-2.5 bg-neutral-600 rounded-full"></div>
-          <div className="w-2.5 h-2.5 bg-neutral-600 rounded-full"></div>
-          <div className="w-2.5 h-2.5 bg-neutral-600 rounded-full"></div>
-        </motion.div>
+        {/* Carousel Indicators (Visual only) */}
+        {displayServices.length > 3 && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.8, duration: 1 }}
+            className="flex justify-center items-center gap-2 mt-16"
+          >
+            <div className="w-10 h-2.5 bg-brand-orange rounded-full"></div>
+            <div className="w-2.5 h-2.5 bg-neutral-600 rounded-full"></div>
+            <div className="w-2.5 h-2.5 bg-neutral-600 rounded-full"></div>
+          </motion.div>
+        )}
 
       </div>
     </section>

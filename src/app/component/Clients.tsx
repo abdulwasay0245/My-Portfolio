@@ -19,6 +19,36 @@ const Clients = () => {
       { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
       src: "/clients/versatile.jfif"
     },
+     { name: "Mana fragrances", style: "font-serif italic text-[#2A3240]" ,
+      src: "/clients/mf-logo.webp"
+    },
+    { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
+      src: "/clients/dynamo.jpg"
+    },
+     { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
+      src: "/clients/5drevive.jpg"
+    },
+    { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
+      src: "/clients/orgafresh.jpeg"
+    },
+      { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
+      src: "/clients/versatile.jfif"
+    },
+     { name: "Mana fragrances", style: "font-serif italic text-[#2A3240]" ,
+      src: "/clients/mf-logo.webp"
+    },
+    { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
+      src: "/clients/dynamo.jpg"
+    },
+     { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
+      src: "/clients/5drevive.jpg"
+    },
+    { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
+      src: "/clients/orgafresh.jpeg"
+    },
+      { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
+      src: "/clients/versatile.jfif"
+    },
   ];
 
   return (
