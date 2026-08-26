@@ -1,14 +1,26 @@
 'use client'
-import { Contact } from "./component/Contact";
 import Hero from "./component/hero";
-import Project from "./component/Project";
+import Clients from "./component/Clients";
+import Testimonials from "./component/Teams";
+import Experience from "./component/Experience";
+import Services from "./component/Services";
+import Portfolio from "./component/Portfolio";
+import Blog from "./component/Blog";
+import CTA from "./component/CTA";
+import { Footer } from "./component/Contact";
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-[#171717] min-h-screen overflow-x-hidden w-full">
       <Hero />
-      <Project />
-      <Contact />
-   </div>
+      <Services />
+      <Clients />
+      <Experience />
+      <Portfolio />
+      <Testimonials />
+      <Blog />
+      <CTA />
+      <Footer />
+    </div>
   );
 }

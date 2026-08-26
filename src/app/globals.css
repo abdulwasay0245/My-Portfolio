@@ -8,48 +8,108 @@ html {
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 5%;
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 5%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 5%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --radius: 0rem; /* Brutalist sharp edges */
-  }
- 
-  .dark {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 98%;
+    --background: 0 0% 0%; /* Pure black */
+    --foreground: 0 0% 100%; /* Pure white */
+    
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 100%;
+    
     --popover: 0 0% 4%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 98%;
+    --popover-foreground: 0 0% 100%;
+    
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    
+    --secondary: 0 0% 8%; /* Dark gray boxes */
+    --secondary-foreground: 0 0% 100%;
+    
     --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 12%;
-    --accent-foreground: 0 0% 98%;
+    --muted-foreground: 0 0% 63.1%;
+    
+    --accent: 236 99.1% 45.5%; /* #0112e7 electric-blue */
+    --accent-foreground: 0 0% 100%;
+    
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 12%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 28%; /* #484848 dark-charcoal */
     --input: 0 0% 12%;
     --ring: 0 0% 83.1%;
+    
+    --radius: 0rem; /* Brutalist sharp edges */
+
+    /* Disrupt Design Tokens */
+    --color-beige: #f3d5ba;
+    --color-blue: #0112e7;
+    --color-near-black: #191919;
+    --color-charcoal: #484848;
+    --color-grey: #a1a1a1;
+  }
+}
+
+@layer utilities {
+  .type-hero-display {
+    font-family: "Source Serif 4", serif;
+    font-size: 102.728px;
+    font-weight: 360;
+    line-height: 82.1823px;
+    letter-spacing: -3.08184px;
+  }
+  .type-section-headline {
+    font-family: "Source Serif 4", serif;
+    font-size: 52.206px;
+    font-weight: 400;
+    line-height: 46.9854px;
+    letter-spacing: -2.08824px;
+  }
+  .type-sub-headline {
+    font-family: "Source Serif 4", serif;
+    font-size: 40.4175px;
+    font-weight: 500;
+    line-height: 44.4593px;
+    letter-spacing: -1.21253px;
+  }
+  .type-card-heading {
+    font-family: "Source Serif 4", serif;
+    font-size: 21.8928px;
+    font-weight: 500;
+    line-height: 28.4607px;
+    letter-spacing: 0.218928px;
+  }
+  .type-body-large {
+    font-family: "Geist", sans-serif;
+    font-size: 18.5247px;
+    font-weight: 440;
+    line-height: 27.7871px;
+    letter-spacing: -0.185247px;
+  }
+  .type-display-sans {
+    font-family: "Geist", sans-serif;
+    font-size: 35.3653px;
+    font-weight: 300;
+    line-height: 49.5115px;
+    letter-spacing: -0.707307px;
+  }
+  .type-body-small {
+    font-family: "Geist", sans-serif;
+    font-size: 13.4725px;
+    font-weight: 400;
+    line-height: 17.649px;
+    letter-spacing: -0.134725px;
+  }
+  .type-label {
+    font-family: "Geist", sans-serif;
+    font-size: 13.4725px;
+    font-weight: 500;
+    line-height: 18.8615px;
+    letter-spacing: 0.5389px;
+  }
+  .type-micro-label {
+    font-family: "Geist", sans-serif;
+    font-size: 11.7884px;
+    font-weight: 500;
+    line-height: 18.8615px;
+    letter-spacing: -0.117884px;
   }
 }
  

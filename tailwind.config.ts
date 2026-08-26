@@ -9,7 +9,30 @@ export default {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			sans: ['var(--font-outfit)', 'sans-serif'],
+            urbanist: ['var(--font-urbanist)', 'sans-serif'],
+            inter: ['var(--font-inter)', 'sans-serif'],
+  		},
   		colors: {
+            brand: {
+                orange: '#FD853A',
+                orangeDark: '#FB6514',
+                orangeLight: '#FEB273',
+            },
+            neutral: {
+                900: '#171717',
+                800: '#1D2939',
+                700: '#344054',
+                400: '#98A2B3',
+                200: '#E4E7EC',
+                50: '#F9FAFB',
+                25: '#FCFCFD',
+            },
+            glass: {
+                DEFAULT: 'rgba(255, 255, 255, 0.1)',
+                dark: 'rgba(104, 104, 104, 0.2)',
+            },
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -48,7 +71,16 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+        keyframes: {
+            marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-33.33%)' }
+            }
+        },
+        animation: {
+            marquee: 'marquee 15s linear infinite'
+        }
   	}
   },
   plugins: [require("tailwindcss-animate")],

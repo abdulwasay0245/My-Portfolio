@@ -1,27 +1,31 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Outfit, Urbanist, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./component/header";
 import Footer from "./component/footer";
 import SmoothScroll from "./component/SmoothScroll";
-import ExtraordinaryElements from "./component/ExtraordinaryElements";
-import Donut3D from "./component/Donut3D";
-import { ThemeProvider } from "./component/ThemeProvider";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  weight: ["300", "400", "500", "600", "700"],
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  variable: "--font-urbanist",
+  weight: ["400", "500", "600", "700"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
   title: "Portfolio",
-  description: "",
+  description: "Creative Developer Portfolio",
 };
 
 export default function RootLayout({
@@ -30,25 +34,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="cursor-default" suppressHydrationWarning>
+    <html lang="en" className="dark cursor-default" style={{ colorScheme: 'dark' }}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${outfit.variable} ${urbanist.variable} ${inter.variable} font-sans bg-[#171717] text-[#FCFCFD] antialiased overflow-x-hidden`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          <SmoothScroll>
-            <div className="noise-overlay" />
-            <Donut3D />
-            <ExtraordinaryElements />
-            <Header />
-            {children}
-            <Footer />
-          </SmoothScroll>
-        </ThemeProvider>
+        <SmoothScroll>
+          <div className="" />
+          <Header />
+          {children}
+          
+        </SmoothScroll>
       </body>
     </html>
   );
