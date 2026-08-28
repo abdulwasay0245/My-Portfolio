@@ -1,16 +1,18 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Code, Bot, AppWindow, GitMerge, LayoutDashboard, Workflow, Globe } from 'lucide-react';
+import Image from 'next/image';
 import { urlFor } from '@/lib/sanity.client';
 
 export default function Services({ services = [] }: { services?: any[] }) {
   const defaultServices = [
-    { title: "Web Development" },
-    { title: "Ai Integration" },
-    { title: "Landing Page" },
-    { title: "Automation" },
-    { title: "Dashboard" },
-    { title: "Workflow" }
+    { title: "Web Development", description: "Modern, responsive, and high-performance websites built with cutting-edge technologies." },
+    { title: "AI Integration", description: "Intelligent AI solutions embedded directly into your workflows to automate and scale." },
+    { title: "Landing Page", description: "High-converting landing pages designed to capture leads and drive business growth." },
+    { title: "Automation", description: "End-to-end workflow automation to eliminate manual tasks and save you time." },
+    { title: "Dashboard", description: "Custom analytics and admin dashboards for visualizing data and managing systems." },
+    { title: "Workflow", description: "Optimized operational workflows tailored to your team's specific needs and processes." }
   ];
 
   const displayServices = services && services.length > 0 ? services : defaultServices;
@@ -20,30 +22,40 @@ export default function Services({ services = [] }: { services?: any[] }) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.15
       }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
       y: 0,
-      scale: 1,
       transition: { 
         type: "spring" as any, 
-        stiffness: 70, 
+        stiffness: 80, 
         damping: 15 
       }
     }
   };
 
+  const getIcon = (title: string) => {
+    const lowerTitle = (title || '').toLowerCase();
+    if (lowerTitle.includes('web')) return AppWindow;
+    if (lowerTitle.includes('ai') || lowerTitle.includes('artificial')) return Bot;
+    if (lowerTitle.includes('landing')) return LayoutDashboard;
+    if (lowerTitle.includes('auto')) return GitMerge;
+    if (lowerTitle.includes('dash')) return Code;
+    if (lowerTitle.includes('work')) return Workflow;
+    return Globe;
+  };
+
   return (
     <section className="w-full bg-[#111111] py-24 md:py-32 relative overflow-hidden" id="services">
       {/* Abstract Background Wavy Shapes Placeholder */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/20 blur-[120px] rounded-full z-0"></div>
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-orange/10 blur-[100px] rounded-full z-0"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/20 blur-[120px] rounded-full z-0 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-orange/10 blur-[100px] rounded-full z-0 pointer-events-none"></div>
 
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
         
@@ -69,89 +81,60 @@ export default function Services({ services = [] }: { services?: any[] }) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 relative"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative"
         >
-          {displayServices.map((service: any, idx: number) => (
-            <motion.div 
-              key={service._id || idx} 
-              variants={cardVariants}
-              whileHover={{ y: -10 }}
-              transition={{ type: "spring" as any, stiffness: 300, damping: 20 }}
-              className="bg-white/5 border border-white/10 backdrop-blur-md rounded-[32px] p-5 flex flex-col gap-6 relative group"
-            >
-              <div className="pb-4 border-b border-white/10 mt-2">
-                <h3 className="text-[28px] text-white font-urbanist font-medium px-2">{service.title}</h3>
-              </div>
-              
-              <div className="relative mt-4 flex-grow">
-                {/* Stacked effect layers */}
-                <div className="absolute -top-6 left-8 right-8 h-10 bg-white/5 rounded-t-2xl border border-white/10 border-b-0"></div>
-                <div className="absolute -top-3 left-4 right-4 h-10 bg-white/10 rounded-t-2xl border border-white/10 border-b-0 backdrop-blur-sm z-10"></div>
+          {displayServices.map((service: any, idx: number) => {
+            const IconComponent = getIcon(service.title);
+            return (
+              <motion.div 
+                key={service._id || idx} 
+                variants={cardVariants}
+                whileHover={{ y: -8 }}
+                className="bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-8 flex flex-col relative group overflow-hidden transition-all duration-300 hover:border-brand-orange/30 hover:bg-white/10"
+              >
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none" />
                 
-                {/* Image Container with Cutout */}
-                <div 
-                  className="relative w-full aspect-[4/3] bg-[#EBE9E4] rounded-3xl p-4 shadow-lg z-20 overflow-hidden flex gap-3 justify-center items-center"
-                  style={{
-                    maskImage: 'radial-gradient(circle at calc(100% - 10px) calc(100% - 10px), transparent 75px, black 76px)',
-                    WebkitMaskImage: 'radial-gradient(circle at calc(100% - 10px) calc(100% - 10px), transparent 75px, black 76px)'
-                  }}
-                >
-                   {service.image ? (
-                     <img src={urlFor(service.image).url()} alt={service.title} className="absolute inset-0 w-full h-full object-cover" />
-                   ) : (
-                     <>
-                       {/* Fake Mobile Screens */}
-                       <motion.div 
-                         whileHover={{ y: -10 }}
-                         transition={{ type: "spring" as any, stiffness: 200, damping: 15 }}
-                         className="w-[45%] h-[120%] bg-[#B89B85] rounded-xl shadow-md -translate-y-4 flex flex-col p-2"
-                       >
-                          <div className="w-full h-24 bg-white/20 rounded-lg mb-2"></div>
-                          <div className="w-full h-12 bg-white/20 rounded-lg mb-2"></div>
-                          <div className="w-full h-12 bg-white/20 rounded-lg"></div>
-                       </motion.div>
-                       <motion.div 
-                         whileHover={{ y: -10 }}
-                         transition={{ type: "spring" as any, stiffness: 200, damping: 15 }}
-                         className="w-[45%] h-[120%] bg-[#B89B85] rounded-xl shadow-md translate-y-4 flex flex-col p-2"
-                       >
-                          <div className="w-full h-12 bg-white/20 rounded-lg mb-2"></div>
-                          <div className="w-full flex-1 bg-white/20 rounded-lg mb-2"></div>
-                       </motion.div>
-                     </>
-                   )}
+                <div className="relative z-10 flex justify-between items-start mb-6">
+                  {service.image ? (
+                    <div className="w-14 h-14 rounded-2xl overflow-hidden relative border border-white/10">
+                       <Image src={urlFor(service.image).url()} alt={service.title} fill className="object-cover" />
+                    </div>
+                  ) : (
+                    <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-brand-orange border border-white/10 group-hover:bg-brand-orange group-hover:text-white transition-all duration-300 shadow-lg">
+                      <IconComponent size={24} strokeWidth={1.5} />
+                    </div>
+                  )}
+                  <span className="text-white/10 font-urbanist text-5xl font-light select-none group-hover:text-white/20 transition-colors duration-300">
+                    {`0${idx + 1}`}
+                  </span>
                 </div>
 
-                {/* Corner Button */}
-                <a href={service.link || '#'} target="_blank" rel="noreferrer">
-                  <motion.div 
-                    whileHover={{ scale: 1.15, rotate: 10 }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{ type: "spring" as any, stiffness: 400, damping: 10 }}
-                    className="absolute -bottom-2 -right-2 bg-[#1A1F2C] text-white hover:bg-brand-orange cursor-pointer rounded-full w-[84px] h-[84px] flex items-center justify-center shadow-2xl z-30"
-                  >
-                    <span className="text-3xl font-light">↗</span>
-                  </motion.div>
-                </a>
-              </div>
-            </motion.div>
-          ))}
+                <div className="relative z-10 flex-grow">
+                  <h3 className="text-2xl text-white font-urbanist font-medium mb-3 group-hover:text-brand-orange transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-white/60 text-sm leading-relaxed">
+                    {service.description || service.summary || "Transforming ideas into scalable, efficient, and robust solutions tailored to your unique requirements."}
+                  </p>
+                </div>
+                
+                <div className="relative z-10 mt-8 pt-6 border-t border-white/10 flex justify-between items-center">
+                  <a href={service.link || '#'} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white/70 font-medium text-sm hover:text-brand-orange transition-colors group/btn">
+                    Learn more 
+                  </a>
+                  <a href={service.link || '#'} target="_blank" rel="noreferrer">
+                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white group-hover:bg-brand-orange transition-colors duration-300">
+                      <svg className="w-4 h-4 transform -rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </div>
+                  </a>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
-
-        {/* Carousel Indicators (Visual only) */}
-        {displayServices.length > 3 && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.8, duration: 1 }}
-            className="flex justify-center items-center gap-2 mt-16"
-          >
-            <div className="w-10 h-2.5 bg-brand-orange rounded-full"></div>
-            <div className="w-2.5 h-2.5 bg-neutral-600 rounded-full"></div>
-            <div className="w-2.5 h-2.5 bg-neutral-600 rounded-full"></div>
-          </motion.div>
-        )}
 
       </div>
     </section>

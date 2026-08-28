@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { urlFor } from '@/lib/sanity.client';
 
+import Image from 'next/image';
+
 export default function Portfolio({ projects = [] }: { projects?: any[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -88,7 +90,7 @@ export default function Portfolio({ projects = [] }: { projects?: any[] }) {
               className={`w-full aspect-[4/3] bg-neutral-200 rounded-3xl overflow-hidden relative shadow-sm group cursor-pointer border transition-all ${activeIndex === idx ? 'border-brand-orange ring-4 ring-brand-orange/20' : 'border-neutral-100'}`}
             >
                {project.image ? (
-                 <img src={urlFor(project.image).url()} alt={project.title} className="absolute inset-0 w-full h-full object-cover" />
+                 <Image src={urlFor(project.image).url()} alt={project.title || 'Project'} fill className="absolute inset-0 object-cover" />
                ) : (
                  <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5] to-[#E3DCD5] flex flex-col justify-between p-8 pt-12">
                     <div className="w-full flex items-center justify-center">

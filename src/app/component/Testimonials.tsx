@@ -3,6 +3,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { urlFor } from '@/lib/sanity.client';
 
+import Image from 'next/image';
+
 export default function Testimonials({ testimonials = [] }: { testimonials?: any[] }) {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -113,9 +115,9 @@ export default function Testimonials({ testimonials = [] }: { testimonials?: any
                     <span className={`absolute right-8 leading-none font-serif select-none ${isActive ? 'top-4 text-[160px] text-white-[0.03] text-[#2A2A2A]' : 'top-8 text-[140px] text-white/5'}`}>❞</span>
                     
                     <div className="flex items-center gap-4 relative z-10">
-                      <div className={`rounded-full overflow-hidden flex items-center justify-center shrink-0 bg-neutral-600 ${isActive ? 'w-14 h-14' : 'w-12 h-12'}`}>
+                      <div className={`relative rounded-full overflow-hidden flex items-center justify-center shrink-0 bg-neutral-600 ${isActive ? 'w-14 h-14' : 'w-12 h-12'}`}>
                         {testimonial.image ? (
-                          <img src={urlFor(testimonial.image).width(100).height(100).url()} alt={testimonial.name} className="w-full h-full object-cover" />
+                          <Image src={urlFor(testimonial.image).width(100).height(100).url()} alt={testimonial.name} fill className="object-cover" />
                         ) : (
                           <span className={`text-xs text-white font-bold`}>{testimonial.name?.charAt(0) || 'U'}</span>
                         )}
