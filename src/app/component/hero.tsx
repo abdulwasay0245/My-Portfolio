@@ -2,13 +2,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Hero = () => {
+import Image from 'next/image';
+import { urlFor } from '@/lib/sanity.client';
+
+const Hero = ({ hero = {} }: { hero?: any }) => {
   // Common spring transition for entrance
   const springTransition = {
     type: "spring" as any,
     stiffness: 80,
     damping: 15,
     mass: 1
+  };
+
+  const defaultHero = {
+    greeting: "Hello!",
+    headline: "I'm <span class='text-brand-orange'>Wasay</span>,<br /> Ai & workflow automation expert.",
+    statsText: "3+ Years",
+    statsLabel: "Experience",
+    quoteText: "Abdul's full-stack development skills ensured our project's success.<br/>Highly Recommended",
+  };
+
+  const data = Object.keys(hero).length > 0 ? hero : defaultHero;
+  
+  // A helper to safely parse the orange highlights
+  const parseHeadline = (htmlString: string) => {
+    return htmlString.replace(/<orange>/g, "<span class='text-brand-orange'>").replace(/<\/orange>/g, "</span>");
   };
 
   return (
@@ -27,10 +45,10 @@ const Hero = () => {
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           >
             <span className="text-[#344054] text-5xl font-serif leading-none">“</span>
-            <p className="font-urbanist text-[#344054] text-lg font-medium leading-snug mt-2">
-              Abdul's full-stack development skills ensured our project's success.<br/>
-              Highly Recommended
-            </p>
+            <p 
+              className="font-urbanist text-[#344054] text-lg font-medium leading-snug mt-2"
+              dangerouslySetInnerHTML={{ __html: data.quoteText || defaultHero.quoteText }}
+            />
           </motion.div>
         </motion.div>
         
@@ -48,8 +66,8 @@ const Hero = () => {
             <div className="flex items-center gap-1 text-brand-orange text-2xl">
               <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
             </div>
-            <span className="font-urbanist font-bold text-[56px] text-neutral-900 leading-none mt-2">3+ Years</span>
-            <span className="font-urbanist text-xl text-[#344054] font-medium">Experience</span>
+            <span className="font-urbanist font-bold text-[56px] text-neutral-900 leading-none mt-2">{data.statsText || defaultHero.statsText}</span>
+            <span className="font-urbanist text-xl text-[#344054] font-medium">{data.statsLabel || defaultHero.statsLabel}</span>
           </motion.div>
         </motion.div>
 
@@ -60,7 +78,7 @@ const Hero = () => {
           transition={springTransition}
           className="border border-neutral-900 rounded-[38px] px-6 py-2 mb-6"
         >
-          <span className="text-neutral-900 font-urbanist font-medium text-lg">Hello!</span>
+          <span className="text-neutral-900 font-urbanist font-medium text-lg">{data.greeting || defaultHero.greeting}</span>
         </motion.div>
 
         {/* Massive Text */}
@@ -69,9 +87,8 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ ...springTransition, delay: 0.1 }}
           className="font-urbanist font-medium text-[72px] md:text-[100px] text-neutral-900 text-center leading-[1.1] mb-12 relative z-20"
-        >
-          I'm <span className="text-brand-orange">Wasay</span>,<br /> Ai & workflow automation expert.
-        </motion.h1>
+          dangerouslySetInnerHTML={{ __html: parseHeadline(data.headline || defaultHero.headline) }}
+        />
 
         {/* Center Person Graphic */}
         <div className="relative mt-8 w-full max-w-[700px] flex justify-center h-[600px]">
@@ -84,14 +101,18 @@ const Hero = () => {
           ></motion.div>
           
           {/* Person Image */}
-          <motion.img
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...springTransition, delay: 0.4 }}
             className="absolute bottom-[-140px] w-[90%] md:w-[80%] saturate-50 h-auto max-h-[150%] object-contain z-10 drop-shadow-xl pointer-events-none"
-            src="/png.png"        
-            alt="Abdul Wasay"
-          />
+          >
+            {data.heroImage ? (
+              <img src={urlFor(data.heroImage).url()} alt="Hero" className="w-full h-auto" />
+            ) : (
+              <img src="/png.png" alt="Abdul Wasay" className="w-full h-auto" />
+            )}
+          </motion.div>
 
           {/* Action Buttons (Glassmorphic over the person) */}
           <motion.div 

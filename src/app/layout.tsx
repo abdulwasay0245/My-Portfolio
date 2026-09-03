@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Urbanist, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react"
 import "./globals.css";
 import Header from "./component/header";
 import SmoothScroll from "./component/SmoothScroll";
@@ -23,33 +24,46 @@ const inter = Inter({
   weight: ["400"],
 });
 
-export const metadata: Metadata = {
-  title: "Abdul Wasay | Creative Developer & AI Integrator",
-  description: "Portfolio of Abdul Wasay. Designing and building AI-powered agents and automated workflows using modern web technologies.",
-  openGraph: {
-    title: "Abdul Wasay | Portfolio",
-    description: "Designing and building AI-powered agents and automated workflows.",
-    url: "https://wasaydevops.vercel.app", // Adjust if actual domain is known
-    siteName: "Abdul Wasay Portfolio",
-    images: [
-      {
-        url: "/og-image.jpg", // We can use the hero png or leave it assuming they upload one
-        width: 1200,
-        height: 630,
-        alt: "Abdul Wasay Portfolio Preview",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Abdul Wasay | Portfolio",
-    description: "Designing and building AI-powered agents and automated workflows.",
-    images: ["/og-image.jpg"],
-  },
-  metadataBase: new URL("https://wasaydevops.vercel.app"), // Fallback base URL
-};
+import { client } from "@/lib/sanity.client";
+import { urlFor } from "@/lib/sanity.client";
+
+
+export async function generateMetadata(): Promise<Metadata> {
+  const settingsArray = await client.fetch(`*[_type == "siteSettings"]`);
+  const settings = settingsArray[0] || {};
+  
+  const title = settings.seoTitle || "Abdul Wasay | Portfolio";
+  const description = settings.seoDescription || "Portfolio of Abdul Wasay. Designing and building AI-powered agents and automated workflows using modern web technologies.";
+  const imageUrl = settings.seoImage ? urlFor(settings.seoImage).width(1200).height(630).url() : "/og-image.jpg";
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: "https://wasaydevops.vercel.app",
+      siteName: "Abdul Wasay Portfolio",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: "Abdul Wasay Portfolio Preview",
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [imageUrl],
+    },
+    metadataBase: new URL("https://wasaydevops.vercel.app"),
+  };
+}
 
 export default function RootLayout({
   children,
@@ -85,9 +99,9 @@ export default function RootLayout({
         <CustomCursor />
         <SmoothScroll>
           <div className="" />
-          <Header />
-          {children}
           
+          {children}
+          <Analytics />
         </SmoothScroll>
       </body>
     </html>

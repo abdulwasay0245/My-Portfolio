@@ -2,8 +2,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function Blog() {
-  const blogs = [
+import Image from 'next/image';
+import { urlFor } from '@/lib/sanity.client';
+
+export default function Blog({ blogs = [] }: { blogs?: any[] }) {
+  const defaultBlogs = [
     {
       category: "UI/ UX Design",
       author: "Jayesh Patil",
@@ -29,6 +32,8 @@ export default function Blog() {
       imagePlaceholder: "Mobile App UI"
     }
   ];
+
+  const displayBlogs = blogs && blogs.length > 0 ? blogs : defaultBlogs;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -81,9 +86,9 @@ export default function Blog() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          {blogs.map((blog, idx) => (
+          {displayBlogs.map((blog: any, idx: number) => (
             <motion.div 
-              key={idx} 
+              key={blog._id || idx} 
               variants={cardVariants}
               whileHover={{ y: -10 }}
               transition={{ type: "spring" as any, stiffness: 300, damping: 20 }}
@@ -96,11 +101,17 @@ export default function Blog() {
                  <motion.div 
                    whileHover={{ scale: 1.05 }}
                    transition={{ type: "spring" as any, stiffness: 100, damping: 15 }}
-                   className={`absolute inset-0 ${blog.bgColor} flex items-center justify-center`}
+                   className={`absolute inset-0 ${blog.bgColor || 'bg-[#8E90DC]'} flex items-center justify-center`}
                  >
-                    {/* Abstract Shapes to mimic the screenshot UI */}
-                    <div className="w-[80%] h-[80%] border-4 border-white/20 rounded-full blur-[2px]"></div>
-                    <span className="absolute text-white/90 font-urbanist font-bold text-3xl drop-shadow-md z-10">{blog.imagePlaceholder}</span>
+                    {blog.image ? (
+                      <Image src={urlFor(blog.image).url()} alt={blog.title} fill className="object-cover" />
+                    ) : (
+                      <>
+                        {/* Abstract Shapes to mimic the screenshot UI */}
+                        <div className="w-[80%] h-[80%] border-4 border-white/20 rounded-full blur-[2px]"></div>
+                        <span className="absolute text-white/90 font-urbanist font-bold text-3xl drop-shadow-md z-10 text-center px-4">{blog.imagePlaceholder || "Blog Image"}</span>
+                      </>
+                    )}
                  </motion.div>
                  
                  {/* The Cutout Corner (Apple Notch style) */}

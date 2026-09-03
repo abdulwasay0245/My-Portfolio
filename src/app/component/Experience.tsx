@@ -2,8 +2,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function Experience() {
-  const experiences = [
+export default function Experience({ experiences = [] }: { experiences?: any[] }) {
+  const defaultExperiences = [
     {
       company: "Freelance, Hybrid",
       date: "Jan 2023- Feb 2025",
@@ -27,6 +27,8 @@ export default function Experience() {
     },
    
   ];
+
+  const displayExperiences = experiences && experiences.length > 0 ? experiences : defaultExperiences;
 
   return (
     <section className="w-full bg-white py-24 relative overflow-hidden" id="experience">
@@ -53,7 +55,7 @@ export default function Experience() {
           ></motion.div>
 
           <div className="flex flex-col gap-16">
-            {experiences.map((exp, idx) => (
+            {displayExperiences.map((exp: any, idx: number) => (
               <motion.div 
                 key={idx} 
                 initial={{ opacity: 0, y: 30 }}

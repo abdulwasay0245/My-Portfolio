@@ -2,21 +2,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Clients = () => {
-  const clients = [
+import Image from 'next/image';
+import { urlFor } from '@/lib/sanity.client';
+
+const Clients = ({ clients = [] }: { clients?: any[] }) => {
+  const defaultClients = [
     { name: "Mana fragrances", style: "font-serif italic text-[#2A3240]" ,
       src: "/clients/mf-logo.webp"
     },
     { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
       src: "/clients/dynamo.jpg"
     },
-     { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
+     { name: "5D Revive", style: "font-serif italic text-[#2A3240]" ,
       src: "/clients/5drevive.jpg"
     },
-    { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
+    { name: "Orgafresh", style: "font-serif italic text-[#2A3240]" ,
       src: "/clients/orgafresh.jpeg"
     },
-      { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
+      { name: "Versatile", style: "font-serif italic text-[#2A3240]" ,
       src: "/clients/versatile.jfif"
     },
      { name: "Mana fragrances", style: "font-serif italic text-[#2A3240]" ,
@@ -24,32 +27,10 @@ const Clients = () => {
     },
     { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
       src: "/clients/dynamo.jpg"
-    },
-     { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
-      src: "/clients/5drevive.jpg"
-    },
-    { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
-      src: "/clients/orgafresh.jpeg"
-    },
-      { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
-      src: "/clients/versatile.jfif"
-    },
-     { name: "Mana fragrances", style: "font-serif italic text-[#2A3240]" ,
-      src: "/clients/mf-logo.webp"
-    },
-    { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
-      src: "/clients/dynamo.jpg"
-    },
-     { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
-      src: "/clients/5drevive.jpg"
-    },
-    { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
-      src: "/clients/orgafresh.jpeg"
-    },
-      { name: "Dynamo Fitness GYM", style: "font-serif italic text-[#2A3240]" ,
-      src: "/clients/versatile.jfif"
-    },
+    }
   ];
+
+  const displayClients = clients && clients.length > 0 ? clients : defaultClients;
 
   return (
     <section className="w-full bg-white py-12 md:py-16 border-b border-neutral-100 overflow-hidden relative">
@@ -73,22 +54,18 @@ const Clients = () => {
           transition={{ delay: 0.3 }}
           className="w-full relative overflow-hidden flex items-center"
         >
-            {/* Fade gradients for edges */}
             <div className="absolute left-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
             <div className="absolute right-0 top-0 bottom-0 w-12 md:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
             <div className="flex items-center whitespace-nowrap animate-marquee">
-              {/* Repeat array for seamless looping (3 sets is 300%, moving -33.33% loops 1 set) */}
-              {[...clients].map((client, idx) => (
-                <div key={idx} className="flex items-center hover:opacity-100 transition-opacity grayscale hover:grayscale-0 cursor-pointer mx-10 md:mx-16">
-                  {client.src ? (
-                    <img 
-                      src={client.src} 
-                      alt={client.name} 
-                      className="h-[80px] w-auto object-contain" 
-                    />
+              {[...displayClients, ...displayClients, ...displayClients].map((client: any, idx: number) => (
+                <div key={client._id ? `${client._id}-${idx}` : idx} className="flex items-center hover:opacity-100 transition-opacity grayscale hover:grayscale-0 cursor-pointer mx-10 md:mx-16 relative w-[120px] h-[60px] md:h-[80px]">
+                  {client.logo ? (
+                    <Image src={urlFor(client.logo).url()} alt={client.name} fill className="object-contain" />
+                  ) : client.src ? (
+                    <Image src={client.src} alt={client.name} fill className="object-contain" />
                   ) : (
-                    <span className={`text-[28px] md:text-[34px] ${client.style}`}>
+                    <span className={`text-[28px] md:text-[34px] ${client.style || 'font-serif italic text-[#2A3240]'}`}>
                       {client.name}
                     </span>
                   )}
