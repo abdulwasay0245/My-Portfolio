@@ -11,8 +11,6 @@
   "dependencies": {
     "@google/genai": "^0.13.0",
     "@gsap/react": "^2.1.2",
-    "@react-three/drei": "^10.7.8",
-    "@react-three/fiber": "^9.7.0",
     "@sanity/vision": "^5.11.0",
     "@vercel/analytics": "^2.0.1",
     "animejs": "^4.0.2",
@@ -31,15 +29,13 @@
     "sanity": "^5.11.0",
     "styled-components": "^6.3.11",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss-animate": "^1.0.7",
-    "three": "^0.185.1"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/three": "^0.185.4",
     "autoprefixer": "^10.4.24",
     "eslint": "^9.39.2",
     "eslint-config-next": "^16.1.6",

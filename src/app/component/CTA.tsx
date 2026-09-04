@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function CTA() {
+export default function CTA({ siteSettings = {} }: { siteSettings?: any }) {
   const marqueeItems = [
     "Full-Stack Dev", "Automation", "Ai Agents", "Business Workflows", "Dashboard", 
   ];
